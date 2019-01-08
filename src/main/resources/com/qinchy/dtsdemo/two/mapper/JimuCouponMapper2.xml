@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qinchy.dtsdemo.two.mapper.JimuCouponMapper2" >
+  <resultMap id="BaseResultMap" type="com.qinchy.dtsdemo.two.domain.JimuCoupon" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="earn" property="earn" jdbcType="DECIMAL" />
+    <result column="month" property="month" jdbcType="INTEGER" />
+    <result column="total" property="total" jdbcType="INTEGER" />
+    <result column="valid" property="valid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, earn, month, total, valid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from jimu_coupon
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from jimu_coupon
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qinchy.dtsdemo.two.domain.JimuCoupon" >
+    insert into jimu_coupon (id, earn, month, 
+      total, valid)
+    values (#{id,jdbcType=INTEGER}, #{earn,jdbcType=DECIMAL}, #{month,jdbcType=INTEGER}, 
+      #{total,jdbcType=INTEGER}, #{valid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qinchy.dtsdemo.two.domain.JimuCoupon" >
+    insert into jimu_coupon
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="earn != null" >
+        earn,
+      </if>
+      <if test="month != null" >
+        month,
+      </if>
+      <if test="total != null" >
+        total,
+      </if>
+      <if test="valid != null" >
+        valid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="earn != null" >
+        #{earn,jdbcType=DECIMAL},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=INTEGER},
+      </if>
+      <if test="total != null" >
+        #{total,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qinchy.dtsdemo.two.domain.JimuCoupon" >
+    update jimu_coupon
+    <set >
+      <if test="earn != null" >
+        earn = #{earn,jdbcType=DECIMAL},
+      </if>
+      <if test="month != null" >
+        month = #{month,jdbcType=INTEGER},
+      </if>
+      <if test="total != null" >
+        total = #{total,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null" >
+        valid = #{valid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qinchy.dtsdemo.two.domain.JimuCoupon" >
+    update jimu_coupon
+    set earn = #{earn,jdbcType=DECIMAL},
+      month = #{month,jdbcType=INTEGER},
+      total = #{total,jdbcType=INTEGER},
+      valid = #{valid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

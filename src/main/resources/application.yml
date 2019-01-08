@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    one:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test?userUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+      username: root
+      password: admin
+    two:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test?userUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+      username: root
+      password: admin
